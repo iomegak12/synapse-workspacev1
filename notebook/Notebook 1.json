@@ -17,14 +17,11 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "17f7c447-b317-4018-aa9f-2e88c6aa298f"
+				"spark.autotune.trackingId": "503e75cf-8da0-40df-b75f-9f724aedf43e"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
-			"synapse_widget": {
-				"version": "0.1"
-			},
 			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_pyspark",
@@ -46,7 +43,7 @@
 				"nodeCount": 3,
 				"cores": 4,
 				"memory": 28,
-				"extraHeader": null
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -57,7 +54,6 @@
 					"import pandas as pd\r\n",
 					"from sklearn.datasets import fetch_california_housing"
 				],
-				"attachments": null,
 				"execution_count": 1
 			},
 			{
@@ -80,7 +76,6 @@
 					"pd_df_california_housing = pd.DataFrame(california_housing.data, columns = california_housing.feature_names)\r\n",
 					"pd_df_california_housing['target'] = pd.Series(california_housing.target)"
 				],
-				"attachments": null,
 				"execution_count": 2
 			},
 			{
@@ -100,7 +95,6 @@
 					"pd_df_california_housing_inferencing = pd_df_california_housing.sample(frac=0.01)\r\n",
 					"pd_df_california_housing_training = pd_df_california_housing.drop(pd_df_california_housing_inferencing.index)"
 				],
-				"attachments": null,
 				"execution_count": 3
 			},
 			{
@@ -119,7 +113,6 @@
 				"source": [
 					"pd_df_california_housing_inferencing['target'] = 0.0"
 				],
-				"attachments": null,
 				"execution_count": 4
 			},
 			{
@@ -143,7 +136,6 @@
 					"\r\n",
 					"spark_df_california_housing_training.write.mode(\"overwrite\").saveAsTable(\"default.CaliforniaTrain\")"
 				],
-				"attachments": null,
 				"execution_count": 5
 			},
 			{
@@ -171,7 +163,6 @@
 					"val scala_df_inference = spark.sqlContext.sql (\"select * from CaliforniaInference\")\r\n",
 					"scala_df_inference.write.synapsesql(\"SQLPoolv10.dbo.CaliforniaInference\", Constants.INTERNAL)"
 				],
-				"attachments": null,
 				"execution_count": 6
 			}
 		]
