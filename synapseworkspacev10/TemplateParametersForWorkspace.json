@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "synapseworkspacev10"
+		},
+		"synapseworkspacev10-WorkspaceDefaultSqlServer_connectionString": {
+			"value": ""
+		},
+		"AzureMLService1_properties_typeProperties_subscriptionId": {
+			"value": "924cf5c7-5f72-42ba-98ee-7ea905016982"
+		},
+		"AzureMLService1_properties_typeProperties_resourceGroupName": {
+			"value": "trainingresourcegroupv2"
+		},
+		"synapseworkspacev10-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://synapsedlsv10.dfs.core.windows.net"
+		}
+	}
+}
